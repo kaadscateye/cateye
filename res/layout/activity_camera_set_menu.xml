@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+       <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="42dp"
+        android:paddingRight="10dp" >
+
+       	<Button
+        	android:id="@+id/butCamera_setMenu_backId"
+        	android:layout_width="75.0dip"
+        	android:text="@string/backMenu_string"
+       	 	android:background="@drawable/mm_title_back_btn"
+        	android:textColor="@android:color/black"
+        	android:layout_height="wrap_content"
+        	android:layout_centerVertical="true"
+        	android:layout_marginLeft="2dip" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="@string/camera_Set_string"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Light_sensitivity_string" />
+
+        <RadioGroup
+            android:id="@+id/radioLight_sensitivitySetId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="3px"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+               	android:textColor="@android:color/black"
+                android:text="@string/Light_sensitivity_high_string" />
+
+            <RadioButton
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="@string/Light_sensitivity_midder_string" />
+
+            <RadioButton
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="@string/Light_sensitivity_low_string" />
+ 
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/light_hz_string" />
+
+        <RadioGroup
+            android:id="@+id/radiolightSetHzId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="3px"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+               	android:textColor="@android:color/black"
+                android:text="50hz" />
+
+            <RadioButton
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="60hz" />
+
+ 
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>

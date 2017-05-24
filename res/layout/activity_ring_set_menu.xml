@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+       <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="42dp"
+        android:paddingRight="10dp" >
+
+       	<Button
+        	android:id="@+id/butRingSetMenu_backId"
+        	android:layout_width="75.0dip"
+        	android:text="@string/backMenu_string"
+       	 	android:background="@drawable/mm_title_back_btn"
+        	android:textColor="@android:color/black"
+        	android:layout_height="wrap_content"
+        	android:layout_centerVertical="true"
+        	android:layout_marginLeft="2dip" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="@string/set_bell_string"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <RadioGroup
+            android:id="@+id/radioRingSetId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="3px"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/radioButton1"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+               	android:textColor="@android:color/black"
+                android:text="@string/ring_didong_string" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="@string/ring_what_string" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="@string/time_alarm_string" />
+             <RadioButton                 
+                android:id="@+id/radioButton4"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="@string/time_dida_string" />
+                                                
+             <RadioButton
+                android:id="@+id/radioButton5"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="@string/time_recoder_voices_string" />
+        </RadioGroup>
+    </LinearLayout>
+
+
+</LinearLayout>

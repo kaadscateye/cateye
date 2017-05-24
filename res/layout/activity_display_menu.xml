@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:paddingLeft="5dp"
+    android:paddingRight="8dp"
+    android:paddingTop="10dp" >
+
+   <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="42dp"
+        android:paddingRight="10dp" >
+
+       	<Button
+        	android:id="@+id/butScreenbackId"
+        	android:layout_width="75.0dip"
+        	android:text="@string/backMenu_string"
+       	 	android:background="@drawable/mm_title_back_btn"
+        	android:textColor="@android:color/black"
+        	android:layout_height="wrap_content"
+        	android:layout_centerVertical="true"
+        	android:layout_marginLeft="2dip" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="@string/display_string"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/screen_light_string" />
+
+        <SeekBar
+            android:id="@+id/screenLightBarId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="10dp" >
+
+        <Button
+            android:id="@+id/butdisplay_screen_close_timeoutId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/screen_close_timeout_string" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="10dp" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Desktop_Wallpaper_string" />
+    </LinearLayout>
+
+</LinearLayout>

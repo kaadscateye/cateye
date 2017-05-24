@@ -1,0 +1,93 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    
+          <LinearLayout 
+           android:layout_width="fill_parent"
+        	android:layout_height="42dp"
+       		android:paddingLeft="5dp"
+        	android:paddingRight="10dp">
+
+       	<Button
+        	android:id="@+id/butStoragebakeId"
+        	android:layout_width="75.0dip"
+        	android:text="@string/backMenu_string"
+       	 	android:background="@drawable/mm_title_back_btn"
+        	android:textColor="@android:color/black"
+        	android:layout_height="wrap_content"
+        	android:layout_centerVertical="true"
+        	android:layout_marginLeft="2dip" />
+    	<LinearLayout
+       	 	android:layout_width="match_parent"
+        	android:layout_height="match_parent"
+        	android:orientation="horizontal"
+        	android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/display_string"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+    </LinearLayout>
+    </LinearLayout> 
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="10dp" >
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/storage_total_string" />
+
+        <TextView
+            android:id="@+id/totalMemoryId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="10dp" >
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/storage_space_string" />
+
+        <TextView
+            android:id="@+id/spaceMemoryId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        
+        android:paddingLeft="5dp"
+        android:paddingRight="10dp" >
+
+        <Button
+            android:id="@+id/Format_memoryId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="@string/Format_memory_card" />
+    </LinearLayout>
+
+</LinearLayout>

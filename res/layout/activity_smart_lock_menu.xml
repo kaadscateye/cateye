@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/butSmart_lock_backId"
+            android:layout_width="75.0dip"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="2dip"
+            android:background="@drawable/mm_title_back_btn"
+            android:text="返回"
+            android:textSize="15sp"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/butSmartContorl_backId"
+            android:layout_alignBottom="@+id/butSmartContorl_backId"
+            android:layout_centerHorizontal="true"
+             android:text="@string/set_smart_lock"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+    </RelativeLayout>
+	<LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:orientation="horizontal" >
+    <Button
+        android:id="@+id/Add_smart_lockId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Add_smart_lock" />
+	</LinearLayout>
+	<LinearLayout       
+    	android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:orientation="horizontal" >
+    <Button
+        android:id="@+id/Delete_smart_lockId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Delete_smart_lock" />
+	</LinearLayout>
+
+	<ListView
+	    android:id="@+id/listView1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+	</ListView>
+
+</LinearLayout>
