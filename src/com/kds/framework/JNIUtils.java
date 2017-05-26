@@ -15,7 +15,7 @@ public class JNIUtils {
 	//设置 PIR 的灵敏度
 	public static native int JNI_SetPIR_ResponseRate(int ResponseRate);
 	//设置系统工作指示灯
-	public static native int JNI_SetSystemLed(int led);
+	public static native int JNI_SetSystemLed(int ledNums,int state);
 	//设置摄像头补光灵敏度
 	public static native int JNI_SetCameraResponseRate(int ResponseRate);
 	//设置光源频率

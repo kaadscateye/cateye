@@ -12,6 +12,7 @@ import android.widget.Toast;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.kds.cateye.R;
+import com.kds.database.SystemConfig;
 
 public class CameraSetMenu extends Activity implements OnClickListener,OnCheckedChangeListener{
 	private RadioGroup radioLight_sensitivity,radiolightSetHz;

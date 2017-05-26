@@ -1,4 +1,4 @@
-package com.kds.list;
+package fragment;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.kds.cateye.LookPhotos;
 import com.kds.cateye.R;
 
-public class SmartContorlAdapter extends BaseAdapter {
+public class listAdapter extends BaseAdapter {
 
 	private final String TAG = listAdapter.class.getName();
 	private Context context;
@@ -27,7 +27,7 @@ public class SmartContorlAdapter extends BaseAdapter {
 	private ArrayList<HashMap<String, String>> arr;
 	public static Boolean moveState = false;
 
-	public SmartContorlAdapter(Context context, ArrayList<HashMap<String, String>> arr) {
+	public listAdapter(Context context, ArrayList<HashMap<String, String>> arr) {
 		super();
 		this.context = context;
 		inflater = LayoutInflater.from(context);
@@ -57,24 +57,32 @@ public class SmartContorlAdapter extends BaseAdapter {
 	public View getView(final int position, View view, ViewGroup arg2) {
 		// TODO Auto-generated method stub
 		if (view == null) {
-			view = inflater.inflate(R.layout.smartcontorl_list, null);
+			view = inflater.inflate(R.layout.listview_item, null);
 		}
 		Log.i(TAG, "Position:" + position);
+		ImageView image = (ImageView) view.findViewById(R.id.imagelistId);
 		TextView txt1 = (TextView) view.findViewById(R.id.textView1);
-		TextView txt2 = (TextView) view.findViewById(R.id.textView2);
 		
 		HashMap<String, String> hs = arr.get(position);
 		Iterator<String> it = hs.keySet().iterator();
 		String str1 = (String) it.next();
 		String str2 = hs.get(str1);
+		if(str2.contains(".jpg")){
+			File file = new File(str2);
+			if(file.exists()){
+				Bitmap bitmap = LookPhotos.getLoacalBitmap(str2); //从本地取图片(在scdcard中获取)  //
+				image .setImageBitmap(bitmap); //设置Bitmap
+			}
+		}else{
+			image.setBackgroundResource(R.drawable.ic_launcher);
+		}
 		txt1.setText(str1);
-		txt2.setText(str2);
 		return view;
 	}
 
 	/**
 	 * @param memory
-	 *            添加item
+	 *  添加item
 	 */
 	public void addMemory(HashMap<String, String> memory) {
 		arr.add(memory);
@@ -89,6 +97,7 @@ public class SmartContorlAdapter extends BaseAdapter {
 		arr.remove(position);
 		notifyDataSetChanged();
 	}
+
 	/**
 	 * @param position
 	 *            位置
@@ -115,9 +124,7 @@ public class SmartContorlAdapter extends BaseAdapter {
     }
     public void add_item(String str1,String str2)
     {
-    	
 		HashMap<String, String> hashMap = new HashMap<String, String>();
-		
 		hashMap.put(str1,str2);
 		this.addMemory(hashMap); 
     }

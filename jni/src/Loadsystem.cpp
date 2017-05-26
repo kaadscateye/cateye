@@ -25,8 +25,8 @@ JNIEXPORT int JNICALL JNI_SetPIR_ResponseRate(JNIEnv *env,jobject obj,jint Respo
 
 		return 0;
 }
-//设置系统工作指示灯
-JNIEXPORT int JNICALL JNI_SetSystemLed(JNIEnv *env,jobject obj,jint led){
+//设置系统工作指示灯/门铃灯
+JNIEXPORT int JNICALL JNI_SetSystemLed(JNIEnv *env,jobject obj,jint ledNum,jint state){
 
 		return 0;
 }
@@ -87,7 +87,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved){
 	met[ret++].fnPtr = (void *)JNI_SetPIR_ResponseRate;
 
 	met[ret].name = "JNI_SetSystemLed";
-	met[ret].signature = "(I)I";  //javap -s -p 包名.类名
+	met[ret].signature = "(II)I";  //javap -s -p 包名.类名
 	met[ret++].fnPtr = (void *)JNI_SetSystemLed;
 
 	met[ret].name = "JNI_SetCameraResponseRate";

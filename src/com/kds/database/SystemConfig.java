@@ -1,4 +1,5 @@
-package com.kds.system;
+package com.kds.database;
+
 
 import android.content.Context;
 
@@ -15,10 +16,10 @@ public class SystemConfig {
     public final int sensitivity_low=1;
     public final int sensitivity_high=2;
     
-    public final static String RingBell="RingBell";
-    public final static String RingAlarm="RingAlarm";
-    public final static String Light_sensitivity="LightSensitivity";
-    public final static String light_hz="light_hz";
+    private  String RingBell="RingBell";		//提取门铃 SharedPreferences 字段名
+    private String RingAlarm="RingAlarm";	//提取告警 SharedPreferences 字段名
+    private String Light_sensitivity="LightSensitivity";//提取 SharedPreferences 字段名
+    private String light_hz="light_hz";
     
 	private  SystemConfig() {
 		
@@ -57,32 +58,41 @@ public class SystemConfig {
 	}
 
 	public Object getRingBell(Context context,Object defaultObject){
-		return SPUtils.getValue(context, SystemConfig.RingBell, defaultObject);
+		return SPUtils.getValue(context, RingBell, defaultObject);
 	}
 	
 	public void setRingBell(Context context,Object object){
-		SPUtils.putValue(context, SystemConfig.RingBell, object);
+		SPUtils.putValue(context, RingBell, object);
 	}
 	public Object getRingAlarm(Context context,Object defaultObject){
-		return SPUtils.getValue(context, SystemConfig.RingAlarm, defaultObject);
+		return SPUtils.getValue(context, RingAlarm, defaultObject);
 	}
 	
 	public void setRingAlarm(Context context,Object object){
-		SPUtils.putValue(context, SystemConfig.RingAlarm, object);
+		SPUtils.putValue(context, RingAlarm, object);
 	}
+	//获取智能补光灵敏度
 	public Object getLight_sensitivity(Context context,Object defaultObject){
-		return SPUtils.getValue(context, SystemConfig.Light_sensitivity, defaultObject);
+		return SPUtils.getValue(context, Light_sensitivity, defaultObject);
 	}
-	
+	//设置智能补光灵敏度
 	public void setLight_sensitivity(Context context,Object object){
-		SPUtils.putValue(context, SystemConfig.Light_sensitivity, object);
+		SPUtils.putValue(context, Light_sensitivity, object);
 	}
+	//获取光源频率
 	public Object getlight_hz(Context context,Object defaultObject){
-		return SPUtils.getValue(context, SystemConfig.light_hz, defaultObject);
+		return SPUtils.getValue(context, light_hz, defaultObject);
 	}
-	
+	//设置光源频率
 	public void setlight_hz(Context context,Object object){
-		SPUtils.putValue(context, SystemConfig.light_hz, object);
+		SPUtils.putValue(context, light_hz, object);
 	}
-	
+	//获取最优服务器地址
+	public Object getBestServerAddress(Context context,Object defaultObject){
+		return SPUtils.getValue(context, light_hz, defaultObject);
+	}
+	//保存最优服务器地址
+	public void setBestServerAddress(Context context,Object object){
+		SPUtils.putValue(context, light_hz, object);
+	}
 }

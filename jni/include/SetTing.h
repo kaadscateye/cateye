@@ -4,6 +4,7 @@
 class SetTing{
 	public :
 		void open();
+		void SetPIR_ResponseRate();
 };
 
 #endif

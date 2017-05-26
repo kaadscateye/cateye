@@ -1,5 +1,6 @@
 package com.kds.cateye;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -24,15 +25,16 @@ public class LookPhotos extends Activity implements OnClickListener{
 	private int window_width, window_height;// 控件宽度
 	private int state_height;// 状态栏的高度
 	private ViewTreeObserver viewTreeObserver;
-	String picpath;
-	ImageView image1;
+	private String picpath;
+	private ImageView image1;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_look_photos);
         init_ui();
+        
     }
-private final class TouchListener implements OnTouchListener {  
+    private final class TouchListener implements OnTouchListener {  
         
         /** 记录是拖拉照片模式还是放大缩小照片模式 */  
         private int mode = 0;// 初始状态    
@@ -126,7 +128,10 @@ private final class TouchListener implements OnTouchListener {
 	
 	private void init_ui(){ 
 		picpath = getIntent().getStringExtra("menustring");
-//		showToast("获取路径:"+picpath);
+		File file = new File(picpath);
+		if(file.exists()==false){
+			return ;
+		}
 		image1= (ImageView) findViewById(R.id.imageLookId);
 		image1.setOnTouchListener(new TouchListener());
 		
@@ -141,11 +146,6 @@ private final class TouchListener implements OnTouchListener {
 	    Bitmap bitmap = getLoacalBitmap(picpath); //从本地取图片(在cdcard中获取)  //
 	    image1 .setImageBitmap(bitmap); //设置Bitmap
 	    match_picture(heightPixels,widthPixels);
-
-//	    ImageView prev = (ImageView) findViewById(R.id.imagePrevId);
-//	    ImageView next = (ImageView) findViewById(R.id.imageNextId);
-//	    prev.setOnClickListener(this);
-//	    next.setOnClickListener(this);
 	}
 	
     /**
@@ -163,21 +163,10 @@ private final class TouchListener implements OnTouchListener {
               return null;
          }
     }
-    private void showToast(String msg){
-        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
-    }
-	public boolean onKeyDown(int keyCode, android.view.KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK
-				&& event.getAction() == KeyEvent.ACTION_DOWN) {
-			finish();
-		}
-		return super.onKeyDown(keyCode, event);
-	}
-	private void match_picture(int heightPixels,int widthPixels)
-	{
+
+	private void match_picture(int heightPixels,int widthPixels){
 		float scaleWidth=1,scaleHeight=1; 
-	    if(heightPixels==1080||widthPixels==1920)
-	    {
+	    if(heightPixels==1080||widthPixels==1920){
 	    	//获得Bitmap的高和宽  
 	    	int bmpWidth=image1.getWidth();  
 	    	int bmpHeight=image1.getHeight();  
@@ -197,14 +186,18 @@ private final class TouchListener implements OnTouchListener {
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
 		switch (arg0.getId()) {
-//		case R.id.imagePrevId:
-//			showToast("上一张");
-//			break;
-//		case R.id.imageNextId:
-//			showToast("下一张");
-//			break;
 		default:
 			break;
 		}
+	}
+    private void showToast(String msg){
+        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+    }
+	public boolean onKeyDown(int keyCode, android.view.KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK
+				&& event.getAction() == KeyEvent.ACTION_DOWN) {
+			finish();
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 }

@@ -14,6 +14,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.kds.cateye.R;
+import com.kds.database.SystemConfig;
 
 public class RingSetMenu extends Activity implements OnClickListener{
 	private RadioGroup radioRingSet;

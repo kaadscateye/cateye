@@ -7,7 +7,10 @@ LOCAL_MODULE := cateye
 
 LOCAL_C_INCLUDES := -I ./include
 
-LOCAL_SRC_FILES := Loadsystem.cpp SetTing.cpp
+LOCAL_SRC_FILES := Loadsystem.cpp SetTing.cpp\
+					drivers/A71xxSpi.c\
+					drivers/Interrupt.c\
+					drivers/SetTing.cpp\
 
 
 LOCAL_CFLAGS += -DGL_GLEXT_PROTOTYPES
