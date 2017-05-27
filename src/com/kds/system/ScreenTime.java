@@ -32,6 +32,7 @@ public class ScreenTime extends Activity implements OnClickListener,OnCheckedCha
     	Button butScreen_back = (Button)findViewById(R.id.butScreen_backId);
     	butScreen_back.setOnClickListener(this);
     	radioScreenTimeSet= (RadioGroup)findViewById(R.id.radioScreenTimeSetId);
+    	SetScreenTime();
     	radioScreenTimeSet.setOnCheckedChangeListener(this);
     }
     
@@ -70,7 +71,7 @@ public class ScreenTime extends Activity implements OnClickListener,OnCheckedCha
 			break;
 		}
 	}
-	private void SetScreenTime(int ScreenTime){
+	private void SetScreenTime(){
 		int index=0;
 		 try {
              int result  = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT);

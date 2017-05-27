@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kds.system.RingSetMenu;
+import com.kds.system.ShowSet_talkpicture;
 
 public class SmartContorl extends Activity implements OnClickListener{
 
@@ -70,15 +71,12 @@ public class SmartContorl extends Activity implements OnClickListener{
 			startActivity(obj.setClass(getApplicationContext(), RingSetMenu.class));
 			break;
 		case R.id.Smart_talk_photo_Id:
-			Show_Set_talkpicture();
+			startActivity(new Intent().setClass(getApplicationContext(), ShowSet_talkpicture.class));
 			break;
 		case R.id.showAlarm_cancel_Id:
 			cancelMethod();
 			break;
 		case R.id.showmonitoring_cancel_Id:
-			cancelMethod();
-			break;
-		case R.id.show_Set_talkpicture_cancel_Id:
 			cancelMethod();
 			break;
 		case R.id.leave_recoder_mode_Id:
@@ -151,14 +149,6 @@ public class SmartContorl extends Activity implements OnClickListener{
 				
 			}
 		});
-	}
-	private void Show_Set_talkpicture(){
-		alertDialog = new AlertDialog.Builder(SmartContorl.this).create();  
-		alertDialog.show();  
-		Window window = alertDialog.getWindow();  
-		window.setContentView(R.layout.show_set_talkpicture); 
-		Button  cancel = (Button)window.findViewById(R.id.show_Set_talkpicture_cancel_Id);
-		cancel.setOnClickListener(this);		
 	}
 	private void configMethod(){
 		if(alertDialog!=null){
