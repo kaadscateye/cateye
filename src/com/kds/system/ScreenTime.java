@@ -86,7 +86,7 @@ public class ScreenTime extends Activity implements OnClickListener,OnCheckedCha
 			}else if(result==60000){
 				index=3;
 			}
-     		radioScreenTimeSet.check(radioScreenTimeSet.getChildAt(index).getId()  );
+     		radioScreenTimeSet.check(radioScreenTimeSet.getChildAt(index).getId());
          } catch (SettingNotFoundException e) {
              // TODO Auto-generated catch block
              e.printStackTrace();

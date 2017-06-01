@@ -1,20 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="320dp"
-    android:layout_height="360dp"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="#ffffff"
     android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#7a7"
-        android:gravity="center_horizontal"
-        android:padding="8dp"
-        android:text="@string/smart_alarm_time_string"
-        android:textColor="#eee"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="42dp"
+        android:paddingRight="10dp" >
+
+        <Button
+            android:id="@+id/butShow_alarmTime_backId"
+            android:layout_width="75.0dip"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="2dip"
+            android:background="@drawable/mm_title_back_btn"
+            android:text="@string/backMenu_string"
+            android:textColor="@android:color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/smart_alarm_time_string"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+  
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -23,7 +44,7 @@
         android:orientation="horizontal" >
 
         <RadioGroup
-            android:id="@+id/radiogroup1"
+            android:id="@+id/radioShow_AlarmTimeId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_x="3px"
@@ -34,51 +55,41 @@
                 android:id="@+id/radioButton1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-               	android:textColor="@android:color/black"
-        		android:textSize="20sp"
-                android:text="@string/time_1sec_string" />
+                android:text="@string/time_1sec_string"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/radioButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="@string/time_3sec_string" />
+                android:text="@string/time_3sec_string"
+                android:textSize="20sp"
+                android:textColor="@android:color/black" />
 
             <RadioButton
                 android:id="@+id/radioButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="@string/time_5sec_string" />
+                android:text="@string/time_5sec_string"
+                android:textSize="20sp"
+                android:textColor="@android:color/black" />
 
             <RadioButton
                 android:id="@+id/radioButton4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="@string/time_10sec_string" />
+                android:text="@string/time_10sec_string"
+                android:textSize="20sp"
+                android:textColor="@android:color/black" />
 
             <RadioButton
                 android:id="@+id/radioButton5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="@string/time_15sec_string" />
+                android:text="@string/time_15sec_string"
+                android:textSize="20sp"
+                android:textColor="@android:color/black" />
         </RadioGroup>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dp" >
-
-        <Button
-            android:id="@+id/showAlarm_cancel_Id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/but_cancel_string" />
-    </LinearLayout>
-
 </LinearLayout>

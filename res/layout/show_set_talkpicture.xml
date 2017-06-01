@@ -5,73 +5,88 @@
     android:background="#ffffff"
     android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#7a7"
-        android:gravity="center_horizontal"
-        android:padding="8dp"
-        android:text="@string/talk_photo_string"
-        android:textColor="#eee"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+       <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="42dp"
+        android:paddingRight="10dp" >
+
+       	<Button
+        	android:id="@+id/butset_talkpiture_backId"
+        	android:layout_width="75.0dip"
+        	android:text="@string/backMenu_string"
+       	 	android:background="@drawable/mm_title_back_btn"
+        	android:textColor="@android:color/black"
+        	android:layout_height="wrap_content"
+        	android:layout_centerVertical="true"
+        	android:layout_marginLeft="2dip" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="@string/talk_photo_mode_string"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+            
+      	<TextView
+        	android:layout_width="wrap_content"
+          	android:layout_height="wrap_content"
+          	android:textColor="@android:color/black"
+           	android:text="@string/talk_photo_set_string"
+           	android:textSize="15sp" />
+      	<Switch
+        	android:layout_width="120dp"
+        	android:layout_height="wrap_content"
+        	android:id="@+id/SwitchSet_talkpictureId"
+        	android:switchMinWidth="20dp"
+        	android:paddingLeft="20dp"
+        	android:textOn="视频"
+        	android:textOff="拍照"
+        	android:thumb="@drawable/thumb"
+        	android:track="@drawable/track" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
         android:gravity="center"
         android:orientation="horizontal" >
 
-        <RadioGroup
-            android:id="@+id/radiogroup1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="3px"
-            android:gravity="center"
-            android:orientation="vertical" >
-
-            <RadioButton
-                android:id="@+id/radioButton1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/talk_photo_picture_string"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
-
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/talk_photo_recoderVideo_string"
-                android:textColor="@android:color/black" />
-        </RadioGroup>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical" >
-
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/textShowSet_talkpictureId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@android:color/black"
             android:text="@string/talk_photo_num_string" />
 
         <RadioGroup
-            android:id="@+id/radiogroup1"
-            android:layout_width="wrap_content"
+            android:id="@+id/RadioshowSet_numsId"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
             android:layout_x="3px"
-            android:gravity="center"
-            android:orientation="vertical" >
+             >
 
             <RadioButton
                 android:id="@+id/radioButton1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
+                android:text="@string/talk_photo_once_string"
                 android:textColor="@android:color/black"
                 android:textSize="20sp" />
 
@@ -79,29 +94,18 @@
                 android:id="@+id/radioButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"
-                android:textColor="@android:color/black" />
+                android:text="@string/talk_photo_three_string"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/radioButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"
-                android:textColor="@android:color/black" />
+                android:text="@string/talk_photo_five_string"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
         </RadioGroup>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dp" >
-
-        <Button
-            android:id="@+id/show_Set_talkpicture_cancel_Id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/but_cancel_string" />
-    </LinearLayout>
+    </LinearLayout> 
 
 </LinearLayout>

@@ -13,12 +13,13 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.testbrocast.PlayRing;
 import com.kds.cateye.R;
 import com.kds.database.SystemConfig;
 
 public class RingSetMenu extends Activity implements OnClickListener{
 	private RadioGroup radioRingSet;
-	private MediaPlayer mp ;
+	private PlayRing mplayer=null;
 	private String strMusic[]={"/mnt/sdcard/external_sd/hongmeigui.mp3","/mnt/sdcard/external_sd/taiduo.mp3"};
 	private int IndexMusic=0;
 	public final static String RingMenuTag="ring";
@@ -34,7 +35,7 @@ public class RingSetMenu extends Activity implements OnClickListener{
     }
 
     private void InitView(){
-        mp= new MediaPlayer();
+        mplayer = new PlayRing();
         radioRingSet = (RadioGroup)findViewById(R.id.radioRingSetId);
         //获取传进来的界面的menu
         ringMenu = getIntent().getStringExtra(RingSetMenu.RingMenuTag);
@@ -60,9 +61,9 @@ public class RingSetMenu extends Activity implements OnClickListener{
 				 int index =radioRingSet.indexOfChild(radioRingSet.findViewById(radioRingSet.getCheckedRadioButtonId()));
 				 showToast(selectText+"-->index:"+index);	
 				 if(selectText.equals(getString(R.string.time_alarm_string))){
-					 playRing(strMusic[0]);
+					 mplayer.playMusicFile(strMusic[0], 15);
 				 }else{
-					 playRing(strMusic[1]);
+					 mplayer.playMusicFile(strMusic[1], 15);
 				 }
 				 if(ringMenu.equals(RingSetMenu.RingMenuBellIndex)){
 					 SystemConfig.getInstance().setRingBell(getApplicationContext(),  index);
@@ -85,59 +86,13 @@ public class RingSetMenu extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		switch (arg0.getId()) {
 		case R.id.butRingSetMenu_backId:
-			stop();
+			mplayer.stop();
 			finish();
 			break;
 
 		default:
 			break;
 		}
-	}
-
-	private void playRing(String musicName){
-		File file = new File(musicName);
-		if(!file.exists()){
-			showToast("not file");
-			return;
-		}
-	      try {
-	    	mp.stop();
-	    	mp.reset();
-			mp.setDataSource(musicName);
-			mp.prepare();
-	        mp.seekTo(0);
-	        mp.start();
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	public void playOrPause() {
-	    if(mp.isPlaying()){
-	        mp.pause();
-	    } else {
-	        mp.start();
-	    }
-	}
-	public void stop() {
-	    if(mp != null) {
-	        mp.stop();
-	        try {
-	            mp.prepare();
-	            mp.seekTo(0);
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-	    }
 	}
 	private void showToast(String msg) {
 		Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();

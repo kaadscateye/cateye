@@ -65,7 +65,7 @@
                     android:textColor="@android:color/black" />
 
                 <Switch
-                    android:id="@+id/switch1"
+                    android:id="@+id/switchsmart_pirId"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
@@ -217,6 +217,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="5px"
+                    android:id="@+id/Smart_talk_photo_mode_Id"
                     android:text="@string/talk_photo_picture_string"
                     android:textColor="@android:color/black" />
             </LinearLayout>
