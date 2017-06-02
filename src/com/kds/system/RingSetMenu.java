@@ -1,10 +1,6 @@
 package com.kds.system;
 
-import java.io.File;
-import java.io.IOException;
-
 import android.app.Activity;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,7 +9,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.example.testbrocast.PlayRing;
+import com.example.demotools.PlayRing;
 import com.kds.cateye.R;
 import com.kds.database.SystemConfig;
 
