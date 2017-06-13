@@ -55,6 +55,7 @@
         	android:paddingLeft="20dp"
         	android:textOn="视频"
         	android:textOff="拍照"
+        	android:textSize="15sp"
         	android:thumb="@drawable/thumb"
         	android:track="@drawable/track" />
     </LinearLayout>

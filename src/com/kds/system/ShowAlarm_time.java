@@ -1,6 +1,7 @@
 package com.kds.system;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,6 +16,7 @@ import com.kds.database.SystemConfig;
 
 public class ShowAlarm_time extends Activity implements OnClickListener{
 	RadioGroup radioShow_AlarmTime;
+	private int Alarm_TimeGroup[]={1,3,5,10,15};
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,9 +28,13 @@ public class ShowAlarm_time extends Activity implements OnClickListener{
     	Button back = (Button)findViewById(R.id.butShow_alarmTime_backId);
     	back.setOnClickListener(this);
     	radioShow_AlarmTime=(RadioGroup)findViewById(R.id.radioShow_AlarmTimeId);
-    	int timeIndex = (Integer) SystemConfig.getInstance().getAlarmTime(getApplicationContext(), 0);
-    	if(timeIndex<0||timeIndex>radioShow_AlarmTime.getChildCount()){
-    		timeIndex=0;
+    	int timeVal = (Integer) SystemConfig.getInstance().getAlarmTime(getApplicationContext(), 0);
+    	int timeIndex = 0;
+    	for(int i=0;i<Alarm_TimeGroup.length;i++){
+    		if(timeVal==Alarm_TimeGroup[i]){
+    			timeIndex=i;
+    			break;
+    		}
     	}
     	radioShow_AlarmTime.check(radioShow_AlarmTime.getChildAt(timeIndex).getId());
     	radioShow_AlarmTime.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -38,7 +44,7 @@ public class ShowAlarm_time extends Activity implements OnClickListener{
 				// TODO Auto-generated method stub
 				int index= arg0.indexOfChild(arg0.findViewById(arg0.getCheckedRadioButtonId()));
 				showToast("index = "+index);
-				SystemConfig.getInstance().setAlarmTime(getApplicationContext(), index);
+				SystemConfig.getInstance().setAlarmTime(getApplicationContext(), Alarm_TimeGroup[index]);
 			}
 		});
     }

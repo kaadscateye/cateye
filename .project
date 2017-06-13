@@ -3,6 +3,7 @@
 	<name>cateye</name>
 	<comment></comment>
 	<projects>
+		<project>DemoTools</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

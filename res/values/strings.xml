@@ -22,6 +22,7 @@
     <string name="but_config_string">确认</string>
     <string name="but_cancel_string">取消</string>
     <string name="sensitivity_high_string">高</string>
+    <string name="sensitivity_middle_string">中</string>
     <string name="sensitivity_low_string">低</string>
     <string name="alarm_bell_string">铃声</string>
     <string name="talk_photo_set_string">连拍设置:</string>
@@ -53,7 +54,7 @@
     <string name="camera_Set_string">摄像头设置</string>
     <string name="Light_sensitivity_string">智能补光灵敏度</string>
     <string name="Light_sensitivity_high_string">高</string>
-    <string name="Light_sensitivity_midder_string">中</string>
+    <string name="Light_sensitivity_middle_string">中</string>
     <string name="Light_sensitivity_low_string">低</string>
     <string name="light_hz_string">光源频率</string>
     <string name="hz_string">hz</string>
@@ -86,6 +87,7 @@
     <string name="title_activity_display_menu">DisplayMenu</string>
     <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
     <string name="title_activity_smart_contorl">SmartContorl</string>
+    <string name="time_sec_string">秒</string>
     <string name="time_1sec_string">1秒</string>
     <string name="time_3sec_string">3秒</string>
     <string name="time_5sec_string">5秒</string>
@@ -95,7 +97,12 @@
     <string name="ring_what_string">你是谁啊</string>
     <string name="time_alarm_string">alarm</string>
     <string name="time_dida_string">嘀嗒</string>
-    <string name="time_recoder_voices_string">录音</string>
+    <string name="time_recoder_voices_string">自定义</string>
+    <string name="doorring_index1_string">铃声 1</string>
+    <string name="doorring_index2_string">铃声 2</string>
+    <string name="doorring_index3_string">铃声 3</string>
+    <string name="doorring_index4_string">铃声 4</string>
+    <string name="doorring_index5_string">铃声 5</string>
     <string name="title_activity_smart_lock_menu">Smart_lock_menu</string>
     <string name="title_activity_ring_set_menu">RingSetMenu</string>
     <string name="hello_world">Hello world!</string>

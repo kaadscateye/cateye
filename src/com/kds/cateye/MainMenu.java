@@ -1,13 +1,15 @@
 package com.kds.cateye;
 
+import BrocastEvent.ReceiverEvent;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
 import android.hardware.Camera.PreviewCallback;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.util.DisplayMetrics;
@@ -76,8 +78,20 @@ public class MainMenu extends Activity implements OnClickListener,
 			}
 		}
 		jpeg = new Jpeg();
-	}
 
+		initBrocastReceiver();
+	}
+	//注册广播接收器，用于接收底层按键发送上来的广播
+	private void initBrocastReceiver(){
+		IntentFilter iFilter = new IntentFilter();
+		iFilter.addAction("com.kdscateye.start");
+		iFilter.addAction("com.kdscateye.Key_ring");
+		iFilter.addAction("com.kdscateye.Key_pir");
+		ReceiverEvent bReceiver = new ReceiverEvent();
+		registerReceiver(bReceiver, iFilter);
+		SendBroadcast("" + ReceiverEvent.Start_Brocast, "com.kdscateye.start");// 启动后台接收广播
+	}
+	
 	@Override
 	protected void onResume() {
 		mCamera = Camera.open(cameraCurrentId);
@@ -194,7 +208,7 @@ public class MainMenu extends Activity implements OnClickListener,
 			jpeg.settakePhoto(false);
 			Log.e("Camera", "get Camera picture ok");
 
-			// jpeg.takephoto(data, camera);
+			 jpeg.takephoto(data, camera);
 		}
 	}
 
@@ -213,8 +227,9 @@ public class MainMenu extends Activity implements OnClickListener,
 					ScanMenu.class));
 			break;
 		case smart_lockId: // 查看门锁
-//			showToast(getString(R.string.scan_photo_string));
-			startActivity(new Intent().setClass(getApplicationContext(), Smart_lock_menu.class));
+			// showToast(getString(R.string.scan_photo_string));
+			startActivity(new Intent().setClass(getApplicationContext(),
+					Smart_lock_menu.class));
 			showToast(common.getCPUSerial());
 			break;
 		case mBtnSetId:
@@ -264,12 +279,30 @@ public class MainMenu extends Activity implements OnClickListener,
 		// 释放
 		wl.release();
 	}
+
 	public boolean onKeyDown(int keyCode, android.view.KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK
 				&& event.getAction() == KeyEvent.ACTION_DOWN) {
 			showToast("返回键");
 			test();
 		}
+		if (keyCode == KeyEvent.KEYCODE_BACK
+				&& event.getAction() == KeyEvent.ACTION_DOWN) {
+			return false;
+		} else if (keyCode == KeyEvent.KEYCODE_VOLUME_UP
+				&& event.getAction() == KeyEvent.ACTION_DOWN) {
+			SendBroadcast("" + ReceiverEvent.Key_ring, "com.kdscateye.Key_ring");
+		} else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN
+				&& event.getAction() == KeyEvent.ACTION_DOWN) {
+			SendBroadcast("" + ReceiverEvent.Key_pir, "com.kdscateye.Key_pir");
+		}
 		return super.onKeyDown(keyCode, event);
 	};
+
+	private void SendBroadcast(Object obj, String action) {
+		Intent intent = new Intent();
+		intent.setAction(action);
+		intent.putExtra(ReceiverEvent.Message, (String) obj);
+		this.sendBroadcast(intent);
+	}
 }

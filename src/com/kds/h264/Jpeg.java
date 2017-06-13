@@ -15,7 +15,7 @@ import android.os.Environment;
 import android.util.Log;
 
 public class Jpeg {
-	private boolean photoState = false;
+	private static boolean photoState = false;
 
 	public void settakePhoto(boolean photoState) {
 		this.photoState = photoState;

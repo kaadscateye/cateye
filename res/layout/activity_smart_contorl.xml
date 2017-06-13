@@ -56,19 +56,23 @@
                     android:src="@drawable/ic_launcher" />
 
                 <TextView
+                    android:id="@+id/Smart_Set_pir_Id"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/Smart_Set_pir_Id"
                     android:layout_weight="2"
                     android:padding="5px"
                     android:text="@string/smart_pir_string"
                     android:textColor="@android:color/black" />
-
-                <Switch
-                    android:id="@+id/switchsmart_pirId"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+               	<ToggleButton 
+					android:id="@+id/switchsmart_pirId" 
+					android:background="@drawable/selector_butn_toggle"
+					android:layout_width="0dp" 
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:checked="true" 
+					android:textOn="" 
+					android:textOff="" 
+					android:text="" />
             </LinearLayout>
 
             <LinearLayout
@@ -84,20 +88,21 @@
                     android:src="@drawable/ic_launcher" />
 
                 <TextView
+                    android:id="@+id/Smart_Set_alarm_timeId"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/Smart_Set_alarm_timeId"
                     android:layout_weight="2"
                     android:padding="5px"
                     android:text="@string/smart_alarm_time_string"
                     android:textColor="@android:color/black" />
 
                 <TextView
+                    android:id="@+id/Smart_alarm_timeValueId"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="5px"
-                    android:text="3s"
+                    android:text="3"
                     android:textColor="@android:color/black" />
             </LinearLayout>
 
@@ -114,15 +119,16 @@
                     android:src="@drawable/ic_launcher" />
 
                 <TextView
+                    android:id="@+id/Smart_Monitoring_sensitivity_Id"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/Smart_Monitoring_sensitivity_Id"
                     android:layout_weight="2"
                     android:padding="5px"
                     android:text="@string/Monitoring_sensitivity_string"
                     android:textColor="@android:color/black" />
 
                 <TextView
+                    android:id="@+id/Monitoring_sensitivity_text_Id"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -144,15 +150,16 @@
                     android:src="@drawable/ic_launcher" />
 
                 <TextView
+                    android:id="@+id/Smart_Automatic_alarm_bell_Id"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/Smart_Automatic_alarm_bell_Id"
                     android:layout_weight="2"
                     android:padding="5px"
                     android:text="@string/Automatic_alarm_bell_string"
                     android:textColor="@android:color/black" />
 
                 <TextView
+                    android:id="@+id/Automatic_alarm_bell_text_Id"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -174,9 +181,9 @@
                     android:src="@drawable/ic_launcher" />
 
                 <TextView
+                    android:id="@+id/Smart_Vol_Set_Id"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/Smart_Vol_Set_Id"
                     android:layout_weight="2"
                     android:padding="5px"
                     android:text="@string/vol_set_string"
@@ -204,24 +211,25 @@
                     android:src="@drawable/ic_launcher" />
 
                 <TextView
+                    android:id="@+id/Smart_talk_photo_Id"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/Smart_talk_photo_Id"
                     android:layout_weight="2"
                     android:padding="5px"
                     android:text="@string/talk_photo_string"
                     android:textColor="@android:color/black" />
 
                 <TextView
+                    android:id="@+id/Smart_talk_photo_mode_Id"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="5px"
-                    android:id="@+id/Smart_talk_photo_mode_Id"
                     android:text="@string/talk_photo_picture_string"
                     android:textColor="@android:color/black" />
             </LinearLayout>
-                        <LinearLayout
+
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
@@ -234,9 +242,9 @@
                     android:src="@drawable/ic_launcher" />
 
                 <TextView
+                    android:id="@+id/leave_recoder_mode_Id"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/leave_recoder_mode_Id"
                     android:layout_weight="2"
                     android:padding="5px"
                     android:text="@string/leave_recoder_mode_string"
@@ -250,8 +258,6 @@
                     android:text="@string/leave_recoder_mode_voices_string"
                     android:textColor="@android:color/black" />
             </LinearLayout>
-            
-            
         </LinearLayout>
     </LinearLayout>
 

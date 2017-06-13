@@ -30,6 +30,9 @@ public class JNIUtils {
 	//删除
 	public static native int JNI_A7139Spi433Mode_DeleteDevices();
 	
+	
+	public static native int JNI_Cutpirture(String picture);
+	
 	//获取设备cpu 信息
 	public String GetDevicesList(){
 		String str ="";

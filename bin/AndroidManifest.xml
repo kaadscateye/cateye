@@ -131,6 +131,13 @@
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
+        <activity
+            android:name="com.kds.system.Show_monitoring_sensitivity"
+            android:label="@string/title_activity_screen_time"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+
     </application>
 
 </manifest>

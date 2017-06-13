@@ -1,7 +1,10 @@
 package com.kds.database;
 
 
+import com.example.demotools.SPUtils;
+
 import android.content.Context;
+
 
 public class SystemConfig {
 	private static SystemConfig  systemConfig=null;
@@ -13,8 +16,12 @@ public class SystemConfig {
     private int talk_photoMode;			//连拍模式
     private int leave_recoder_mode;		//留言模式
     
-    public static final int sensitivity_low=0;
-    public static final int sensitivity_high=1;
+    public static final int open=1;		//开关状态	
+    public static final int close=0;
+    
+    public static final int sensitivity_low=0;	//监控灵敏度
+    public static final int sensitivity_middle=1;
+    public static final int sensitivity_high=2;
     
     private  String Smart_pirState="Smart_pirState";		//提取pir人体侦测状态 SharedPreferences 字段名
     private  String AlarmTime="AlarmTime";		//提取pir人体侦测状态 SharedPreferences 字段名
@@ -59,7 +66,7 @@ public class SystemConfig {
 	public void setMonitor_sensitivity(Context context,Object object){
 		SPUtils.putValue(context, Monitor_sensitivity, object);
 	}
-	 //智能人体侦测状态
+	 //报警门铃
 	public Object getRingAlarm(Context context,Object defaultObject){
 		return SPUtils.getValue(context, RingAlarm, defaultObject);
 	}

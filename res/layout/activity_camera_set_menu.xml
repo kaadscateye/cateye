@@ -63,7 +63,7 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
-                android:text="@string/Light_sensitivity_midder_string" />
+                android:text="@string/Light_sensitivity_middle_string" />
 
             <RadioButton
                 android:layout_width="120dp"

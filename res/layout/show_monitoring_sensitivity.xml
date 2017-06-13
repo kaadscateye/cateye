@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="320dp"
-    android:layout_height="240dp"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="#ffffff"
     android:orientation="vertical" >
 
@@ -23,7 +23,7 @@
         android:orientation="horizontal" >
 
         <RadioGroup
-            android:id="@+id/radiogroup1"
+            android:id="@+id/radioMonitorIng_sensitivityId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_x="3px"
@@ -36,14 +36,19 @@
                 android:layout_height="wrap_content"
                	android:textColor="@android:color/black"
         		android:textSize="20sp"
-                android:text="@string/sensitivity_high_string" />
-
+                android:text="@string/sensitivity_low_string" />
             <RadioButton
                 android:id="@+id/radioButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
-                android:text="@string/sensitivity_low_string" />
+                android:text="@string/sensitivity_middle_string" />
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="@string/sensitivity_high_string" />
 
         </RadioGroup>
     </LinearLayout>

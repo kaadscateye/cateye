@@ -26,6 +26,7 @@
             android:orientation="horizontal" >
 
             <TextView
+                android:id="@+id/ringMenuTextId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
@@ -83,6 +84,5 @@
                 android:text="@string/time_recoder_voices_string" />
         </RadioGroup>
     </LinearLayout>
-
 
 </LinearLayout>

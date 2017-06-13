@@ -16,32 +16,39 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.kds.database.SystemConfig;
 import com.kds.system.RingSetMenu;
 import com.kds.system.ShowAlarm_time;
 import com.kds.system.ShowSet_talkpicture;
+import com.kds.system.Show_monitoring_sensitivity;
 
 public class SmartContorl extends Activity implements OnClickListener{
 
 	AlertDialog alertDialog=null;
 	AudioManager mAudioManager;
+	public final static int Menu_Smart_Set_alarm_time=0x1;
+	public final static int Menu_Smart_Monitoring_sensitivity=0x2;
+	public final static int Menu_Smart_Automatic_alarm_bell=0x3;
+	public final static int Menu_Smart_talk_photo=0x4;
+	public final static int Menu_leave_recoder_mode=0x5;
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_smart_contorl);
+
         InitUImenu();
 
-        
     }
     private void InitUImenu() {
   		Button butsetMenuBack = (Button)findViewById(R.id.butSmartContorl_backId);
   		butsetMenuBack.setOnClickListener(this);
   		TextView Set_smart_alarm_time = (TextView)findViewById(R.id.Smart_Set_alarm_timeId);
-  		Set_smart_alarm_time.setOnClickListener(this);
+   		Set_smart_alarm_time.setOnClickListener(this);
   		TextView Monitoring_sensitivity = (TextView)findViewById(R.id.Smart_Monitoring_sensitivity_Id);
   		Monitoring_sensitivity.setOnClickListener(this);
   		TextView Automatic_alarm_bell = (TextView)findViewById(R.id.Smart_Automatic_alarm_bell_Id);
@@ -53,9 +60,9 @@ public class SmartContorl extends Activity implements OnClickListener{
   		TextView leave_recoder_mode= (TextView)findViewById(R.id.leave_recoder_mode_Id);
   		leave_recoder_mode.setOnClickListener(this);
   		
-  		Switch switchsmart_pir=(Switch)findViewById(R.id.switchsmart_pirId);
+  		ToggleButton switchsmart_pir=(ToggleButton)findViewById(R.id.switchsmart_pirId);
   		int pirState = (Integer) SystemConfig.getInstance().getSmart_pirState(getApplicationContext(), 0);
-  		if(pirState==SystemConfig.sensitivity_low){
+  		if(pirState==SystemConfig.close){
   			switchsmart_pir.setChecked(false);
   		}else{
   			switchsmart_pir.setChecked(true);
@@ -67,9 +74,9 @@ public class SmartContorl extends Activity implements OnClickListener{
 				// TODO Auto-generated method stub
 				int state=0;
 				if(arg1){
-					state=SystemConfig.sensitivity_high;
+					state=SystemConfig.open;
 				}else{
-					state=SystemConfig.sensitivity_low;
+					state=SystemConfig.close;
 				}
 				SystemConfig.getInstance().setSmart_pirState(getApplicationContext(), state);
 			}
@@ -80,30 +87,25 @@ public class SmartContorl extends Activity implements OnClickListener{
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
 		switch (arg0.getId()) {
-		case R.id.butSmartContorl_backId:
+		case R.id.butSmartContorl_backId:	//返回按钮
 			finish();
 			break;
-		case R.id.Smart_Set_pir_Id:
-			break;
-		case R.id.Smart_Set_alarm_timeId:
+		case R.id.Smart_Set_alarm_timeId:	//设置智能报警时间
 			startActivity(new Intent().setClass(getApplicationContext(), ShowAlarm_time.class));
 			break;
-		case R.id.Smart_Monitoring_sensitivity_Id:
-			ShowMonitoring();
+		case R.id.Smart_Monitoring_sensitivity_Id://监控灵敏度设置
+			startActivity(new Intent().setClass(getApplicationContext(), Show_monitoring_sensitivity.class));
 			break;
-		case R.id.Smart_Vol_Set_Id:
-			showSetVol();
-			break;
-		case R.id.Smart_Automatic_alarm_bell_Id:
+		case R.id.Smart_Automatic_alarm_bell_Id:	//自动报警铃声
 			Intent obj = new Intent();
 			obj.putExtra(RingSetMenu.RingMenuTag, RingSetMenu.RingMenuAlarmIndex);
 			startActivity(obj.setClass(getApplicationContext(), RingSetMenu.class));
 			break;
+		case R.id.Smart_Vol_Set_Id:		//音量设置
+			showSetVol();
+			break;
 		case R.id.Smart_talk_photo_Id:
 			startActivity(new Intent().setClass(getApplicationContext(), ShowSet_talkpicture.class));
-			break;
-		case R.id.showmonitoring_cancel_Id:
-			cancelMethod();
 			break;
 		case R.id.leave_recoder_mode_Id:
 			showToast("留言模式");
@@ -126,16 +128,6 @@ public class SmartContorl extends Activity implements OnClickListener{
 			
 		}
 		return super.onKeyDown(keyCode, event);
-	}
-
-	
-	private void ShowMonitoring(){	//智能监控灵敏度
-		alertDialog = new AlertDialog.Builder(SmartContorl.this).create();  
-		alertDialog.show();  
-		Window window = alertDialog.getWindow();  
-		window.setContentView(R.layout.show_monitoring_sensitivity); 
-		Button  cancel = (Button)window.findViewById(R.id.showmonitoring_cancel_Id);
-		cancel.setOnClickListener(this);		
 	}
 
 	private void showSetVol(){		//显示设置音量
@@ -183,6 +175,27 @@ public class SmartContorl extends Activity implements OnClickListener{
 	}
 	//进入子界面设置好之后，返回到当前界面，需要更新ui 数据
 	private void updateUimenu(){
+		//更新智能报警时间
+		TextView smart_alarm_time = (TextView)findViewById(R.id.Smart_alarm_timeValueId);
+		int time = (Integer) SystemConfig.getInstance().getAlarmTime(getApplication(),1);
+		smart_alarm_time.setText(""+time+" "+getString(R.string.time_sec_string));
+		
+		//更新监控灵敏度
+		int sensitivity = (Integer) SystemConfig.getInstance()
+				.getMonitor_sensitivity(getApplicationContext(), 0);
+		TextView Monitoring_sensitivity_text = (TextView)findViewById(R.id.Monitoring_sensitivity_text_Id);
+		if(sensitivity==SystemConfig.sensitivity_high){
+			Monitoring_sensitivity_text.setText(R.string.Light_sensitivity_high_string);
+		}else if(sensitivity==SystemConfig.sensitivity_middle){
+			Monitoring_sensitivity_text.setText(R.string.Light_sensitivity_middle_string);
+		}else if(sensitivity==SystemConfig.sensitivity_low){
+			Monitoring_sensitivity_text.setText(R.string.Light_sensitivity_low_string);
+		}
+		//更新自动报警铃声
+		TextView Automatic_alarm_bell_text = (TextView)findViewById(R.id.Automatic_alarm_bell_text_Id);
+		String str=(String) SystemConfig.getInstance().getRingAlarm(getApplicationContext(), "");
+		Automatic_alarm_bell_text.setText(str);
+		//更新连拍模式
   		TextView Smart_talk_photo_mode= (TextView)findViewById(R.id.Smart_talk_photo_mode_Id);
 		int mode = (Integer) SystemConfig.getInstance().getTalk_photo_mode(getApplicationContext(), 0);
 		if(mode==SystemConfig.istalk_video_mode){
@@ -190,6 +203,8 @@ public class SmartContorl extends Activity implements OnClickListener{
 		}else{
 			Smart_talk_photo_mode.setText(R.string.talk_photo_picture_string);
 		}
+
+		//更新留言模式
 	}
 	@Override
 	protected void onResume() {
@@ -204,4 +219,24 @@ public class SmartContorl extends Activity implements OnClickListener{
 		Log.e("smartcontorl", "onPause");
 		super.onPause();
 	}
+    /*onActivityResult接收数据的方法  */  
+    @Override  
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
+        super.onActivityResult(requestCode, resultCode, data);  
+        String content=data.getStringExtra("data");//字符串content得到data数据  
+        switch (resultCode) {
+       		case Menu_Smart_Set_alarm_time:
+       			break;
+       		case Menu_Smart_Monitoring_sensitivity:
+       			break;
+       		case Menu_Smart_Automatic_alarm_bell:
+       			break;
+       		case Menu_Smart_talk_photo:
+       			break;
+       		case Menu_leave_recoder_mode:
+       			break; 			
+       		default:
+       			break;
+        }
+    } 
 }
