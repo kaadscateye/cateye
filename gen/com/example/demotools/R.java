@@ -14,7 +14,7 @@ public final class R {
 	public static final class id {
 		public static final int butSendBrocastId = 0x7f080016;
 		public static final int butwaitId = 0x7f080017;
-		public static final int menu_settings = 0x7f080076;
+		public static final int menu_settings = 0x7f08008d;
 	}
 	public static final class layout {
 		public static final int activity_demo = 0x7f030002;

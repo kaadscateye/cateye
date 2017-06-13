@@ -46,10 +46,10 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/linear_Smart_Set_pir_Id"
                 android:orientation="horizontal" >
 
                 <ImageView
-                    android:id="@+id/imageView1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -78,10 +78,10 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/linear_Smart_Set_alarm_timeId"
                 android:orientation="horizontal" >
 
                 <ImageView
-                    android:id="@+id/imageView1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -109,10 +109,10 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/linear_Smart_Monitoring_sensitivity_Id"
                 android:orientation="horizontal" >
 
                 <ImageView
-                    android:id="@+id/imageView1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -140,10 +140,10 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/linear_Smart_Automatic_alarm_bell_Id"
                 android:orientation="horizontal" >
 
                 <ImageView
-                    android:id="@+id/imageView1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -171,10 +171,10 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/linear_Smart_Vol_Set_Id"
                 android:orientation="horizontal" >
 
                 <ImageView
-                    android:id="@+id/imageView1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -201,10 +201,10 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/linear_Smart_talk_photo_mode_Id"
                 android:orientation="horizontal" >
 
                 <ImageView
-                    android:id="@+id/imageView1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -232,10 +232,10 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/linear_leave_recoder_mode_Id"
                 android:orientation="horizontal" >
 
-                <ImageView
-                    android:id="@+id/imageView1"
+                <ImageView             
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

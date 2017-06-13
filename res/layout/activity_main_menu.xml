@@ -1,7 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainId"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/mainId" >
+    <com.kds.h264.Preview
+        android:id="@+id/pv_video"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
+    <LinearLayout
+        android:id="@+id/ll_contian_btn"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/leftback"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btn_smart_control"
+            android:layout_width="match_parent"
+            android:text="@string/smart_contorl_string"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_photo"
+            android:text="@string/scan_photo_string"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_smart_lock"
+            android:text="@string/set_smart_lock"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_set"
+            android:text="@string/scan_setmenu_string"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
     </LinearLayout>
+
+</RelativeLayout>
